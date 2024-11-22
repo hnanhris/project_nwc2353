@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - HHA Printed</title>
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to your CSS file -->
+</head>
+
+	
+    <header>
+		<span class="logo-text">HHA PRINTED</span>
+		
+        <div class="logo"> </div>
+		
+        <nav>
+        <ul class="left-nav">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="productpage.html">Scarves</a></li>
+        </ul>
+        <ul class="right-nav">
+            <li><a href="cartpage.html"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="AccountPage2.html"><i class="fas fa-user"></i></a></li>
+        </ul>
+    </nav>
+    </header>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	
+	<body>
+
+  <div class="background-pattern">
+	  
+    <div class="register-container">
+      <h2>SIGN IN</h2>
+		
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Sign In</button>
+		  
+      </form>
+		
+      <p>Don't have an account? <a href="AccountPage.html">Sign up</a></p>
+    </div>
+  </div>
+		
+	<footer>
+		<p> 2024 HHA Printed. All Rights Reserved. </p>
+		<p> Contact us: hhaprinted@gmail.com | Phone: 016 536 8083 </p>
+	</footer>
+		
+</body>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting to the server
+        
+        // Retrieve form values
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        
+        // Check if email exists in localStorage
+        const storedUser = localStorage.getItem(email);
+        
+        if (!storedUser) {
+            alert('No account found with this email.');
+            return;
+        }
+        
+        // Parse the stored user data
+        const user = JSON.parse(storedUser);
+        
+        // Check if the password matches
+        if (user.password !== password) {
+            alert('Incorrect password!');
+            return;
+        }
+        
+        // Successful login
+        alert('Sign-in successful! Redirecting to your account...');
+        window.location.href = 'HomePage.html'; // Replace with your account page URL
+    });
+</script>
+
+<style>
+	
+header {
+    justify-content: space-between;
+    background-color: black;
+	display: grid;
+    grid-template-columns: 1fr auto 1fr;  /* Three columns: left, center, and right */
+    align-items: center;  /* Vertically center the content */
+    padding: 20px;
+}
+	
+.logo-text {
+    font-size: 24px;             /* Makes the text bold */
+    color: white;                  /* Choose the color for your logo text */
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    letter-spacing: 2px;          /* Adds spacing between letters */
+    text-transform: uppercase;    /* Makes the text uppercase */
+	padding-left: 30px;
+	}
+
+.left-nav, .right-nav {
+    display: flex;
+    align-items: center; /* Vertically center the items in both nav sections */
+}
+
+.left-nav {
+    gap: 30px; /* Space between Home and Scarves */
+}
+
+.right-nav {
+    gap: 30px; /* Space between Cart and Account */
+	margin-right: -60px;
+}
+	
+nav {
+    display: flex;
+    justify-content: space-between; /* Distribute the left and right navigation */
+    width: 100%; /* Take full width of the header */
+}
+	
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	font-size: 20px;
+	margin-left: -90px;
+	margin-right: 70px;
+}
+	
+/* Active Page Highlight */
+nav ul li a.active {
+    color: white;
+    font-weight: bold;
+}
+
+	
+	footer {
+    background-color: #000; /* Set background color to black */
+    text-align: center;      /* Center the content */
+    padding: 30px;        
+	margin-top: 50px;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+footer p {
+    color: #fff;             /* Set the text color to white */
+    margin: 9px;
+	font-size: 20px;
+}
+	
+/* Background pattern styling */
+
+.background-pattern {
+  margin-top: 50px; /* Adds space between header and register container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../accountpicture.png'); /* Replace with your pattern image file */
+  background-size: cover;
+  background-repeat: repeat;
+}
+	
+.register-container {
+  background-color: #ffffff;
+  padding: 30px;
+  width: 500px;
+  border-radius: 0px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+.brand-name {
+  color: #8a9463; /* Adjust color to match your theme */
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 26px;
+  margin-top: 1px;
+  margin-bottom: 40px;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  text-align: left;
+  font-size: 19px;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+  color: black;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+button {
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: px;
+  font-size: 19px;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: black;
+}
+
+p {
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+  margin-top: 40px;
+  color: black;
+}
+
+p a {
+  color: black;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+	
+</style>
+	
+</html>
